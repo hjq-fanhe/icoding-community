@@ -82,6 +82,7 @@
 
 <script>
   import "../../assets/js/iconfont/iconfont";
+  import {loginGit} from '../../network/head';
   export default {
     name: "Head",
     data() {
@@ -98,6 +99,13 @@
       onSearch() {
       },
       login(way) {
+        if (way == "github") {
+          loginGit().then( res =>{
+            window.console.log(res)
+          })
+        } else {
+          
+        }
       },
       handleCommand(key) {
         window.console.log(key)
