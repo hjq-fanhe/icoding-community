@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const Discovery = () => import("../view/discovery/discovery")
+const Discovery = () => import("../view/discovery/Discovery")
 
 const routes = [
   { path: '/' ,redirect: '/discovery'},
