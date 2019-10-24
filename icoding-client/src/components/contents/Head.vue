@@ -81,8 +81,8 @@
 </template>
 
 <script>
-  import "../../assets/js/iconfont/iconfont";
-  import {loginGit} from '../../network/head';
+  import "assets/js/iconfont/iconfont";
+  import {loginGit} from 'network/head';
   export default {
     name: "Head",
     data() {
@@ -104,7 +104,7 @@
             window.console.log(res)
           })
         } else {
-          
+
         }
       },
       handleCommand(key) {
