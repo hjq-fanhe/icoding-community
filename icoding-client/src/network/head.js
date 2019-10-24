@@ -1,14 +1,17 @@
-import {axios} from './axiosConfig'
+import {axios} from 'utils/axiosConfig'
 
-export function loginGit(){
-    return axios({
-        url: '/login/oauth/authorize',
-        method: 'get',
-        params: {
-            client_id: '6072d0342dcda0e39a6a',
-            redirect_uri: 'http://localhost:8082/icoding/callback',
-            scope: 'user',
-            state: 'github'
-        }
-    })
+import queryString from "querystring";
+
+import params from "common/params";
+
+export function loginGit() {
+  let requestURL = params.userAuthorizationUri;
+  requestURL = requestURL + ('?' + queryString.stringify({
+    client_id: params.clientId,
+    redirect_uri: params.redirect_uri,
+    scope: params.scope,
+    state: params.state
+  }))
+  window.console.log(requestURL)
+  window.location.href = requestURL;
 }
