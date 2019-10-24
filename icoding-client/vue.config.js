@@ -1,18 +1,31 @@
 //vue配置
-const path = require('path')
-
-function resolve(dir){
-  return path.join(__dirname,dir)
-}
 
 module.exports = {
-  chainWebpack: config => {
-    config.resolve.alias
-      .set('assets',resolve('@/assets'))
-      .set('components',resolve("@/components"))
-      .set('network',resolve('@/network'))
-      .set('router',resolve('@/router'))
-      .set('store',resolve('@/store'))
-      .set('view',resolve('@/view'))
+  configureWebpack: {
+    resolve: {
+      alias: {
+        'assets': '@/assets',
+        'common': '@/common',
+        'components': '@/components',
+        'network': '@/network',
+        'utils': '@/utils',
+        'router': '@/router',
+        'store': '@/store',
+        'view': '@/view'
+      }
+    }
+  },
+  devServer: {
+    port: 8487,    //配置默认端口号
+    proxy: {
+      '/github': {
+        target: 'https://github.com',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/github':'/'
+        }
+      }
+    }
   }
 }
