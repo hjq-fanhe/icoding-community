@@ -9,6 +9,7 @@ module.exports = {
         'components': '@/components',
         'network': '@/network',
         'utils': '@/utils',
+        'plugins': '@/plugins',
         'router': '@/router',
         'store': '@/store',
         'view': '@/view'
@@ -24,6 +25,22 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/github':'/'
+        }
+      },
+      '/icoding':{
+        target: process.env.VUE_APP_ICODING_ADDR,
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/icoding': '/'
+        }
+      },
+      '/gitee': {
+        target: process.env.VUE_APP_GITEE_APIURL,
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/gitee': ''
         }
       }
     }
